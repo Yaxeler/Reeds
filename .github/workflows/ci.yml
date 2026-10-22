@@ -2,11 +2,7 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
 
-# Новый пуш в ту же ветку отменяет ещё идущую проверку
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -34,12 +30,15 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run Commitlint
+        env:
+          BEFORE: ${{ github.event.before }}
         run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            pnpm exec commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
+          if git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+            FROM="$BEFORE"
           else
-            pnpm exec commitlint --from ${{ github.event.before }} --to ${{ github.sha }} --verbose
+            FROM=$(git merge-base origin/main HEAD)
           fi
+          pnpm exec commitlint --from "$FROM" --to HEAD --verbose
 
   check:
     name: ${{ matrix.name }}
