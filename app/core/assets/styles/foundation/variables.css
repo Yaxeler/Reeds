@@ -1,0 +1,17 @@
+html {
+	color-scheme: light dark;
+}
+
+html.light {
+	color-scheme: light;
+}
+
+html.dark {
+	color-scheme: dark;
+}
+
+:root {
+	--bg: light-dark(rgb(250 248 245 / 100%), rgb(24 24 27 / 100%));
+	--text: light-dark(rgb(33 33 38 / 100%), rgb(228 228 231 / 100%));
+	--text-base: 1rem;
+}

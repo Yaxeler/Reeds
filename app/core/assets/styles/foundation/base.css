@@ -1,0 +1,17 @@
+html {
+	height: 100%;
+	font-size: var(--text-base);
+}
+
+body {
+	min-height: 100%;
+	background-color: var(--bg);
+	color: var(--text);
+	font-family: system-ui, sans-serif;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+button {
+	cursor: pointer;
+}
