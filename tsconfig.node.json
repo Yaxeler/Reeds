@@ -8,5 +8,5 @@
 		"strict": true,
 		"target": "ESNext"
 	},
-	"include": ["commitlint.config.ts", "eslint.config.mjs"]
+	"include": ["commitlint.config.ts", "eslint.config.mjs", "vitest.config.ts"]
 }

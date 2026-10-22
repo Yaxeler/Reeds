@@ -14,7 +14,8 @@
 		"check:oxlint": "oxlint",
 		"check:eslint": "eslint .",
 		"check:types": "nuxt typecheck",
-		"check:all": "pnpm run check:formatting && pnpm run check:styles && pnpm run check:oxlint && pnpm run check:eslint && pnpm run check:types"
+		"test": "vitest run --passWithNoTests",
+		"check:all": "pnpm run check:formatting && pnpm run check:styles && pnpm run check:oxlint && pnpm run check:eslint && pnpm run check:types && pnpm run test"
 	},
 	"dependencies": {
 		"@pinia/nuxt": "^1.0.3",
@@ -48,6 +49,7 @@
 		"stylelint-config-standard-vue": "^1.0.0",
 		"stylelint-order": "^8.1.1",
 		"typescript": "^6.0.3",
+		"vitest": "^5.0.5",
 		"vue-tsc": "3.3.11"
 	}
 }
