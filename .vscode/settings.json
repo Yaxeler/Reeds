@@ -1,0 +1,22 @@
+{
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit",
+		"source.fixAll.stylelint": "explicit",
+		"source.organizeImports": "explicit",
+		"source.fixAll.prettier": "never"
+	},
+
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+
+	"stylelint.validate": ["css", "vue"],
+	"css.lint.unknownAtRules": "ignore",
+
+	"editor.insertSpaces": false,
+	"editor.tabSize": 2,
+	"editor.detectIndentation": false,
+
+	"[yaml]": {
+		"editor.insertSpaces": true
+	}
+}
