@@ -1,0 +1,21 @@
+commit-msg:
+  jobs:
+    - name: lint commit message
+      run: pnpm exec commitlint --edit {1}
+
+# Строго по очереди. Все три задачи правят .vue, параллельно они затирают
+# друг друга. Сначала форматирование, чтобы линтеры видели итоговый код
+pre-commit:
+  jobs:
+    - name: format
+      glob: '*.{vue,ts,js,mjs,json,css,yml,yaml,html,md}'
+      run: pnpm exec prettier --write {staged_files}
+      stage_fixed: true
+    - name: lint styles
+      glob: '*.{vue,css}'
+      run: pnpm exec stylelint --fix {staged_files}
+      stage_fixed: true
+    - name: lint scripts
+      glob: '*.{vue,ts,js,mjs}'
+      run: pnpm exec oxlint --fix {staged_files} && pnpm exec eslint --fix {staged_files}
+      stage_fixed: true

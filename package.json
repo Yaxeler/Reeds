@@ -2,7 +2,7 @@
 	"name": "reeds",
 	"type": "module",
 	"private": true,
-	"packageManager": "bun@1.4.2",
+	"packageManager": "pnpm@12.3.4",
 	"scripts": {
 		"build": "nuxt build",
 		"dev": "nuxt dev",
@@ -10,7 +10,12 @@
 		"preview": "nuxt preview",
 		"postinstall": "nuxt prepare",
 		"check:formatting": "prettier . --check",
-		"check:types": "nuxt typecheck"
+		"check:styles": "stylelint \"app/**/*.{vue,css}\"",
+		"check:oxlint": "oxlint",
+		"check:eslint": "eslint .",
+		"check:types": "nuxt typecheck",
+		"test": "vitest run --passWithNoTests",
+		"check:all": "pnpm run check:formatting && pnpm run check:styles && pnpm run check:oxlint && pnpm run check:eslint && pnpm run check:types && pnpm run test"
 	},
 	"dependencies": {
 		"@pinia/nuxt": "^1.0.3",
@@ -20,8 +25,31 @@
 		"vue-router": "5.3.1"
 	},
 	"devDependencies": {
+		"@commitlint/cli": "^21.2.2",
+		"@commitlint/config-conventional": "^21.2.2",
+		"@nuxt/eslint": "^1.17.0",
+		"@vue/eslint-config-prettier": "^10.2.0",
+		"@vue/eslint-config-typescript": "^14.9.0",
+		"eslint": "^10.10.0",
+		"eslint-import-resolver-typescript": "^4.4.5",
+		"eslint-plugin-import-x": "^4.17.1",
+		"eslint-plugin-oxlint": "^1.81.0",
+		"eslint-plugin-perfectionist": "^5.11.0",
+		"eslint-plugin-unicorn": "74.0.0",
+		"eslint-plugin-vue": "^10.11.0",
+		"eslint-plugin-vuejs-accessibility": "^2.6.0",
+		"lefthook": "^2.1.12",
+		"oxlint": "^1.81.0",
+		"postcss-html": "^2.0.0",
 		"prettier": "^3.9.6",
+		"stylelint": "^17.15.0",
+		"stylelint-config-property-sort-order-smacss": "^11.2.0",
+		"stylelint-config-recommended": "^18.0.0",
+		"stylelint-config-standard": "^40.0.0",
+		"stylelint-config-standard-vue": "^1.0.0",
+		"stylelint-order": "^8.1.1",
 		"typescript": "^6.0.3",
+		"vitest": "^5.0.5",
 		"vue-tsc": "3.3.11"
 	}
 }
