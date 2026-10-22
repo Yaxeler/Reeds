@@ -1,0 +1,27 @@
+{
+	"name": "reeds",
+	"type": "module",
+	"private": true,
+	"packageManager": "bun@1.4.2",
+	"scripts": {
+		"build": "nuxt build",
+		"dev": "nuxt dev",
+		"generate": "nuxt generate",
+		"preview": "nuxt preview",
+		"postinstall": "nuxt prepare",
+		"check:formatting": "prettier . --check",
+		"check:types": "nuxt typecheck"
+	},
+	"dependencies": {
+		"@pinia/nuxt": "^1.0.3",
+		"nuxt": "^4.6.2",
+		"pinia": "^4.1.0",
+		"vue": "^3.5.42",
+		"vue-router": "5.3.1"
+	},
+	"devDependencies": {
+		"prettier": "^3.9.6",
+		"typescript": "^6.0.3",
+		"vue-tsc": "3.3.11"
+	}
+}

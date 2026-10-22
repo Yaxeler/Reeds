@@ -1,0 +1,36 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+
+# PWA dev output (@vite-pwa/nuxt)
+dev-dist
+
+# Node dependencies
+node_modules
+
+# Tests
+coverage
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea/
+
+# Local env files
+.env
+.env.*
+!.env.template
+
+# TypeScript build cache
+*.tsbuildinfo
+
+# Ai Agents
+CLAUDE.local.md
