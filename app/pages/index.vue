@@ -4,15 +4,15 @@
 
 <template>
 	<section class="wip">
-		<h1 class="title">Reeds</h1>
+		<h1 class="wip__title">Reeds</h1>
 
-		<p>
+		<p class="wip__description">
 			Веб-приложение для адаптивного чтения: загружаете свой текст, а приложение
 			приводит его к удобному для вас виду и при необходимости озвучивает.
 		</p>
 
 		<img
-			class="image"
+			class="wip__image"
 			:src="wip"
 			alt="Сайт в разработке"
 			width="450"
@@ -33,12 +33,12 @@
 		text-align: center;
 	}
 
-	.title {
+	.wip__title {
 		font-size: 2.5rem;
 		line-height: 1.2;
 	}
 
-	.image {
+	.wip__image {
 		width: min(100%, 18rem);
 	}
 </style>
