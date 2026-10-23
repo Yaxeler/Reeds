@@ -1,8 +1,44 @@
 {
 	"$schema": "./node_modules/oxlint/configuration_schema.json",
+	"jsPlugins": [
+		{
+			"name": "feod-structure",
+			"specifier": "@o-feod/oxlint-structure-plugin"
+		}
+	],
 	"rules": {
 		"eslint/curly": ["warn", "multi-line"],
 
 		"unicorn/no-null": "off"
-	}
+	},
+	"overrides": [
+		{
+			"files": ["app/**"],
+			"rules": {
+				"feod-structure/layer-imports": [
+					"error",
+					{ "srcRoot": "app", "layerDirs": { "app": "core" } }
+				],
+				"feod-structure/no-common-index": ["error", { "srcRoot": "app" }],
+				"feod-structure/no-common-deep": [
+					"error",
+					{ "srcRoot": "app", "maxDepth": 2 }
+				],
+				"feod-structure/no-zigzag-imports": ["error", { "srcRoot": "app" }],
+				"feod-structure/no-unknown-files": [
+					"error",
+					{
+						"srcRoot": "app",
+						"layerDirs": { "app": "core" },
+						"ignore": ["app/app.vue"]
+					}
+				],
+				"feod-structure/no-submodule-of-submodule": [
+					"error",
+					{ "srcRoot": "app" }
+				],
+				"feod-structure/pages-private-modules": ["error", { "srcRoot": "app" }]
+			}
+		}
+	]
 }

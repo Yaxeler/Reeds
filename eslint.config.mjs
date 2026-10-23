@@ -182,6 +182,23 @@ export default withNuxt(
 				],
 			},
 		},
+
+		{
+			files: ['app/**/*.{ts,vue}'],
+			rules: {
+				'no-restricted-imports': [
+					'error',
+					{
+						patterns: [
+							{
+								group: ['./*', '../*'],
+								message: 'Используй абсолютный импорт через @/',
+							},
+						],
+					},
+				],
+			},
+		},
 	),
 
 	// Программа TS для type-aware линтинга занимает ~700 МБ, а CI ограничен
