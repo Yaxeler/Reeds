@@ -1,3 +1,3 @@
-@import 'foundation/variables.css';
-@import 'foundation/reset.css';
-@import 'foundation/base.css';
+@import '@/core/assets/styles/foundation/variables.css';
+@import '@/core/assets/styles/foundation/reset.css';
+@import '@/core/assets/styles/foundation/base.css';
