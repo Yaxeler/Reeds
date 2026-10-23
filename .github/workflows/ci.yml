@@ -152,3 +152,57 @@ jobs:
 
       - name: Run Vitest
         run: pnpm run test
+
+  build:
+    if: github.ref == 'refs/heads/main'
+    needs:
+      - check-commits
+      - check-formatting
+      - check-scripts
+      - check-styles
+      - check-types
+      - check-tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        env:
+          NUXT_APP_BASE_URL: /${{ github.event.repository.name }}/
+        run: pnpm exec nuxt build --preset github_pages
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: .output/public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

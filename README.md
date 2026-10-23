@@ -4,21 +4,21 @@
 
 Вся обработка идёт в браузере, документ не покидает устройство.
 
-Сайт: <https://reeds-app.pages.dev>
+Сайт: <https://yaxeler.github.io/Reeds/>
 
 ---
 
 ## Стек
 
-| Инструмент                                       | Назначение                                  |
-| ------------------------------------------------ | ------------------------------------------- |
-| [Nuxt 4](https://nuxt.com)                       | Каркас, маршрутизация, сборка (без SSR)     |
-| [Vue 3](https://vuejs.org)                       | UI-фреймворк, Composition API               |
-| [TypeScript](https://www.typescriptlang.org)     | Типизация                                   |
-| [Pinia](https://pinia.vuejs.org)                 | Управление состоянием                       |
-| [Vitest](https://vitest.dev)                     | Юнит-тесты чистых функций                   |
-| [pnpm](https://pnpm.io)                          | Пакетный менеджер                           |
-| [Cloudflare Pages](https://pages.cloudflare.com) | Хостинг: автосборка из GitHub, превью веток |
+| Инструмент                                   | Назначение                                |
+| -------------------------------------------- | ----------------------------------------- |
+| [Nuxt 4](https://nuxt.com)                   | Каркас, маршрутизация, сборка (без SSR)   |
+| [Vue 3](https://vuejs.org)                   | UI-фреймворк, Composition API             |
+| [TypeScript](https://www.typescriptlang.org) | Типизация                                 |
+| [Pinia](https://pinia.vuejs.org)             | Управление состоянием                     |
+| [Vitest](https://vitest.dev)                 | Юнит-тесты чистых функций                 |
+| [pnpm](https://pnpm.io)                      | Пакетный менеджер                         |
+| [GitHub Pages](https://pages.github.com)     | Хостинг статики, деплой из GitHub Actions |
 
 ---
 
@@ -108,7 +108,7 @@ pnpm dev
 
 ```bash
 pnpm dev               # Запуск dev-сервера
-pnpm build             # Production-сборка (так собирает Cloudflare)
+pnpm build             # Production-сборка
 pnpm generate          # Сборка статики в .output/public
 pnpm preview           # Превью production-сборки
 
@@ -130,7 +130,7 @@ pnpm test              # Unit-тесты (Vitest)
 - `main` — единственная постоянная ветка, она же продакшен.
 - Работа ведётся в ветках `<type>/<короткое-имя>` (`feat/pdf-import`, `fix/voice-error`) и вливается в `main` через пулл-реквест.
 - CI (GitHub Actions) на каждый пуш проверяет коммиты, форматирование, линтеры, типы и тесты. Слить пулл-реквест можно только после успешных проверок.
-- Cloudflare Pages сам собирает проект: пуш в `main` обновляет <https://reeds-app.pages.dev>, пуш в другую ветку создаёт превью по адресу `<ветка>.reeds-app.pages.dev`.
+- После успешных проверок на `main` CI собирает статику и публикует её на GitHub Pages: <https://yaxeler.github.io/Reeds/>. Сайт открывается из подпапки `/Reeds/`, поэтому при сборке задаётся `NUXT_APP_BASE_URL=/Reeds/`.
 
 ---
 
