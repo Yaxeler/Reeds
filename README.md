@@ -64,7 +64,7 @@ app/
 - `utilities/` — утилитарные классы;
 - `portals/` — стили компонентов, которые рендерятся в портал вне дерева приложения.
 
-Компоненты стилизуются через `<style scoped>`. Поддерживаются светлая, тёмная и системная темы: цвета заданы через `light-dark()`, тема переключается классом `html.light` или `html.dark`. Порядок CSS-свойств проверяет stylelint (`stylelint-config-property-sort-order-smacss`).
+Компоненты стилизуются через `<style scoped>`, классы именуются по **[БЭМ](https://ru.bem.info/methodology/naming-convention/)**: `block`, `block__element`, `block--modifier`. Поддерживаются светлая, тёмная и системная темы: цвета заданы через `light-dark()`, тема переключается классом `html.light` или `html.dark`. Порядок CSS-свойств проверяет stylelint (`stylelint-config-property-sort-order-smacss`).
 
 ---
 
