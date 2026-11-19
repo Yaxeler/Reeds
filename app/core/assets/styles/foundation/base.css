@@ -1,17 +1,39 @@
+@font-face {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 100 900;
+	font-display: swap;
+	src: url('/fonts/InterVariable.woff2') format('woff2');
+}
+
 html {
 	height: 100%;
-	font-size: var(--text-base);
+	font-size: var(--font-size-root);
 }
 
 body {
 	min-height: 100%;
 	background-color: var(--bg);
 	color: var(--text);
-	font-family: system-ui, sans-serif;
-	font-weight: 400;
-	line-height: 1.5;
+	font-family: var(--font-family);
+	font-size: var(--text-base);
+	font-weight: var(--font-weight-regular);
+	line-height: var(--line-height-body);
+}
+
+a {
+	color: var(--accent);
 }
 
 button {
 	cursor: pointer;
+}
+
+::view-transition-group(root) {
+	animation-duration: 180ms;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 180ms;
 }

@@ -66,6 +66,12 @@ app/
 
 Компоненты стилизуются через `<style scoped>`, классы именуются по **[БЭМ](https://ru.bem.info/methodology/naming-convention/)**: `block`, `block__element`, `block--modifier`. Поддерживаются светлая, тёмная и системная темы: цвета заданы через `light-dark()`, тема переключается классом `html.light` или `html.dark`. Порядок CSS-свойств проверяет stylelint (`stylelint-config-property-sort-order-smacss`).
 
+### Токены Reeds
+
+- Интерфейс использует Inter с кириллицей. Шрифт и лицензия лежат в `public/fonts`. Настройки шрифта документа будут частью профиля чтения.
+- Один `clamp()` задаёт корневой размер шрифта от 18 до 20 px на ширине от 320 до 1440 CSS-пикселей при браузерной настройке 16 px. Токены текста и отступов заданы в `rem` и растут пропорционально корневому размеру. Например, `--text-base` равен `1rem` (18–20 px), `--text-xl` — `1.75rem` (31,5–35 px), `--space-5` — `1.5rem` (27–30 px). [Utopia](https://utopia.fyi/blog/clamp/)
+- `--bg`, `--text` и `--accent` задают фон, основной текст и цвет ссылок. Контраст основного текста и ссылок на фоне превышает 4.5:1 в обеих темах. [WCAG: контраст текста](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html)
+
 ---
 
 ## Начало работы

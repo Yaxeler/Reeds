@@ -11,7 +11,34 @@ html.dark {
 }
 
 :root {
-	--bg: light-dark(rgb(250 248 245 / 100%), rgb(24 24 27 / 100%));
-	--text: light-dark(rgb(33 33 38 / 100%), rgb(228 228 231 / 100%));
+	/* Brand / Primary */
+	--accent: light-dark(#205a49, #a6dcc7);
+
+	/* Text Colors */
+	--text: light-dark(#212126, #e4e4e7);
+
+	/* Background */
+	--bg: light-dark(#faf8f5, #18181b);
+
+	/* Fluid Base (320px → 1440px) */
+	--font-size-root: clamp(1.125rem, 1.0893rem + 0.1786vi, 1.25rem);
+
+	/* Fluid Typography (в rem относительно базового) */
+	--font-family: Inter, system-ui, sans-serif;
+	--font-weight-regular: 400;
+	--font-weight-bold: 700;
+	--line-height-body: 1.5;
+	--line-height-heading: 1.2;
+	--text-sm: 0.9rem;
 	--text-base: 1rem;
+	--text-lg: 1.25rem;
+	--text-xl: 1.75rem;
+
+	/* Fluid Spacing (в rem) */
+	--space-1: 0.25rem;
+	--space-2: 0.5rem;
+	--space-3: 0.75rem;
+	--space-4: 1rem;
+	--space-5: 1.5rem;
+	--space-6: 2.25rem;
 }
