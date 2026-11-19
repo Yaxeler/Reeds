@@ -28,3 +28,12 @@ a {
 button {
 	cursor: pointer;
 }
+
+::view-transition-group(root) {
+	animation-duration: 180ms;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 180ms;
+}

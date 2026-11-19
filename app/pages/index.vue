@@ -1,5 +1,28 @@
 <script setup lang="ts">
+	import { annotate } from 'rough-notation'
+
 	import wip from '@/common/images/wip.gif'
+	import wipStatic from '@/common/images/wip.png'
+
+	const readingAccent = useTemplateRef('readingAccent')
+	const annotation = shallowRef<ReturnType<typeof annotate>>()
+
+	onMounted(() => {
+		const target = readingAccent.value
+		if (!target) return
+
+		annotation.value = annotate(target, {
+			animate: false,
+			padding: 1,
+			type: 'underline',
+		})
+		annotation.value.show()
+		if (target.nextElementSibling?.classList.contains('rough-annotation')) {
+			target.nextElementSibling.setAttribute('aria-hidden', 'true')
+		}
+	})
+
+	onBeforeUnmount(() => annotation.value?.remove())
 </script>
 
 <template>
@@ -7,17 +30,30 @@
 		<h1 class="wip__title">Reeds</h1>
 
 		<p class="wip__description">
-			Веб-приложение для адаптивного чтения: загружаете свой текст, а приложение
-			приводит его к удобному для вас виду и при необходимости озвучивает.
+			Веб-приложение для
+			<span class="wip__accent">
+				<span ref="readingAccent">адаптивного чтения:</span>
+			</span>
+			загружаете свой текст, а приложение приводит его к удобному для вас виду и
+			при необходимости озвучивает.
 		</p>
 
-		<img
+		<picture
 			class="wip__image"
-			:src="wip"
-			alt="Сайт в разработке"
-			width="450"
-			height="450"
-		/>
+			data-ples
+		>
+			<source
+				:srcset="wipStatic"
+				media="(prefers-reduced-motion: reduce)"
+			/>
+
+			<img
+				:src="wip"
+				alt="Сайт в разработке"
+				width="450"
+				height="450"
+			/>
+		</picture>
 	</section>
 </template>
 
@@ -37,6 +73,16 @@
 		font-size: var(--text-xl);
 		font-weight: var(--font-weight-bold);
 		line-height: var(--line-height-heading);
+	}
+
+	.wip__accent {
+		display: inline-block;
+		color: var(--accent);
+	}
+
+	.wip__accent > span {
+		display: inline-block;
+		color: var(--text);
 	}
 
 	.wip__image {
