@@ -25,17 +25,18 @@
 	.wip {
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: var(--space-5);
 		align-items: center;
 		max-width: 40rem;
 		margin-inline: auto;
-		padding: 3rem 1rem;
+		padding: var(--space-6) var(--space-4);
 		text-align: center;
 	}
 
 	.wip__title {
-		font-size: 2.5rem;
-		line-height: 1.2;
+		font-size: var(--text-xl);
+		font-weight: var(--font-weight-bold);
+		line-height: var(--line-height-heading);
 	}
 
 	.wip__image {
